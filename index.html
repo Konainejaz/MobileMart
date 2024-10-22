@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Mart</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 1517px !important;
+        }
+
+        #start {
+            background-color: #CBCBCB;
+            height: 85px;
+            overflow: hidden;
+            border-top: 5px solid #FFDE00;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+
+        #start-text {
+            display: inline-flex;
+            border-bottom: 3px solid #fff;
+            padding: 0px 0px;
+            margin: 14px 3px;
+            float: right;
+        }
+
+        #start-text h1 {
+            display: inline-flex;
+            flex-direction: row;
+            padding: 0px 4px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 3;
+            position: relative;
+            bottom: 20px;
+        }
+
+        #start-text h1:nth-last-of-type(odd) {
+            color: #e52113;
+        }
+
+        #start-text h1:nth-last-of-type(even) {
+            color: #fdd702;
+        }
+
+        nav {
+            background-color: #e52113;
+            overflow: hidden;
+            height: 50px;
+        }
+
+        nav>ul {
+            padding-inline-start: 0px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        nav>ul>li {
+            background-color: #e52113;
+            clear: both;
+            float: left;
+            list-style-type: none;
+        }
+
+        nav>ul>li>a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px;
+        }
+
+        nav ul li:hover>a {
+            background-color: #666666;
+        }
+
+        #search-bar {
+            background-color: #EDEDED;
+            overflow: hidden;
+            width: 100%;
+            max-width: 161px;
+            min-width: 161px;
+            height: 100%;
+            border-right: 3px solid #e52113;
+            box-sizing: border-box;
+        }
+
+        #search-bar ul,
+        ul>li>ul {
+            padding-inline-start: 0px;
+        }
+
+        #search-bar h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0px 10px;
+        }
+
+        #search-bar>ul li {
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        #search-bar>ul li:hover {
+            background-color: #e52113;
+        }
+
+        #search-bar>ul li:hover>a {
+            color: #ffffff;
+            background-color: #e52113;
+        }
+
+        #search-bar>ul>li a {
+            display: block;
+            color: #e52113;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding-left: 15px;
+        }
+
+        nav>ul>li ul {
+            padding-inline-start: 0px;
+            position: absolute;
+            display: none;
+            background-color: #e52113;
+            width: 132px;
+            margin-top: 16px;
+        }
+
+        nav>ul>li:hover>ul {
+            display: block;
+        }
+        nav>ul>li>ul>li>ul{
+            position: absolute;
+            left: 132px;
+            top: 194px;
+        }
+        nav>ul>li>ul>li:hover>ul {
+            display: block;
+        }
+
+        nav>ul>li>ul li {
+            list-style-type: none;
+        }
+
+        nav>ul>li>ul>li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 10px 18px;
+        }
+
+        nav>ul>li>ul>li:hover {
+        }
+
+        nav>ul>li>ul>li a:hover {
+            background-color: #666666;
+        }
+
+        hr {
+            width: 100%;
+            height: 1.2px;
+            background-color: #ffffff;
+        }
+
+
+        section {
+            background-color: #EDEDED;
+            overflow: hidden;
+            display: flex;
+        }
+
+        #phone-bar {
+            overflow: hidden;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            height: 1350px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            float: left;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+
+        .phones {
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px 0px;
+            margin-top: 10px;
+            margin-left: 20px;
+            width: 250px;
+            height: 340px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 10px;
+            float: left;
+            box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.5s ease-in-out;
+        }
+
+        .phones:hover {
+            transition: 0.5s ease-in-out;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .phones img {
+            width: auto;
+            margin: auto;
+            height: 200px;
+        }
+
+        .phones h1 {
+            text-align: center;
+            font-size: 18px;
+
+        }
+
+        .phones p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .phones button {
+            background-color: #e52113;
+            color: #fff;
+            width: 120px;
+            height: 30px;
+            border: none;
+            padding: 0px 5px;
+            border-radius: 50px;
+            margin: auto;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .phones button:hover {
+            background-color: #ffffff;
+            border: 1px solid #e52113;
+            color: #e52113;
+        }
+
+        .phones a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .phones a:hover {
+            color: #e52113;
+        }
+
+        footer div img {
+            clear: both;
+            width: 100%;
+            height: 100%;
+        }
+
+        #foot {
+            background-color: #EDEDED;
+            overflow: hidden;
+            display: flex;
+
+            padding: 0px 20px;
+        }
+
+        #foot div {
+            padding: 0px 0px;
+            margin: 14px 40px;
+        }
+
+        #foot div:nth-child(1) {
+            float: left;
+            margin: 0px 0px;
+        }
+
+        #foot div:nth-child(1) a {
+            text-decoration: none;
+        }
+
+        #foot h3 {
+            display: inline-flex;
+            padding: 0px 0px;
+        }
+
+        #foot ul {
+            padding-inline-start: 5px;
+            list-style-type: none;
+        }
+
+        #foot img {
+            width: 50%;
+            height: 50%;
+        }
+
+        #copy {
+            text-align: center;
+            padding: 5px 0px;
+            background-color: #EDEDED;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="start">
+                <div>
+                    <img src="../pics/Mobile Mart/EMart.png" alt="logo" />
+                </div>
+                <div id="start-text">
+                    <h1>We</h1>
+                    <h1>Care</h1>
+                    <h1>Your</h1>
+                    <h1>Mobile</h1>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Mobile Phones</a>
+                        <ul>
+                            <li><a href="">Nokia</a></li>
+                            <li><a href="">Sony</a></li>
+                            <li><a href="">Samsung</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Smart Phones</a>
+                        <ul>
+                            <li><a href="">Apple</a></li>
+                            <li><a href="">Samsung</a></li>
+                            <li><a href="">Huawei</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Tablets</a>
+                        <ul>
+                            <li><a href="">Samsung</a></li>
+                            <li><a href="">Ipad</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Accessories</a>
+                        <ul>
+                            <li><a href="">Protector</a></li>
+                            <li><a href="">Cover / Pouch</a></li>
+                            <li><a href="">Charger</a></li>
+                            <li><a href="">Handfree</a></li>
+                            <li><a href="">Battery</a></li>
+                            <li><a href="">Others</a>
+                                <ul>
+                                    <li><a href="">USB</a></li>
+                                    <li><a href="">Memory Card</a></li>
+                                    <li><a href="">Data Cable</a></li>
+                                    <li><a href="">Powerbank</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="">My Acount</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <aside id="search-bar">
+                <h1>Search by Brand:</h1>
+                <ul>
+                    <li><a href="">Samsung</a></li>
+                    <li><a href="">Huawei</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Lenovo</a></li>
+                    <li><a href="">Oppo</a></li>
+                    <li><a href="">Microsoft</a></li>
+                    <li><a href="">Nokia</a></li>
+                    <li><a href="">LG</a></li>
+                    <li><a href="">HTC</a></li>
+                    <li><a href="">Sony</a></li>
+                    <li><a href="">Motorola</a></li>
+                    <li><a href="">Blackberry</a></li>
+                    <li><a href="">Vivo</a></li>
+                    <li><a href="">Ericson</a></li>
+                    <li><a href="">QMobile</a></li>
+                    <li><a href="">Others</a></li>
+                </ul>
+                <img src="../pics/Mobile Mart/banner.jpg" alt="">
+            </aside>
+            <main id="phone-bar">
+                <h1>Apple Mobile Phones</h1>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/1.png" alt=""></center>
+                    <h1>Apple Iphone X</h1>
+                    <p>Rs. 125,500</p>
+                    <center><button>Buy Now<a href="about"></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/2.png" alt=""></center>
+                    <h1>Apple Iphone 8+</h1>
+                    <p>Rs. 96,999</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/3.png" alt=""></center>
+                    <h1>Apple Iphone 8</h1>
+                    <p>Rs. 90,000</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/4.png" alt=""></center>
+                    <h1>Apple Iphone 7+</h1>
+                    <p>Rs. 80,999</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/5.png" alt=""></center>
+                    <h1>Apple Iphone 7</h1>
+                    <p>Rs. 71,999</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/6.png" alt=""></center>
+                    <h1>Apple Iphone 6S+</h1>
+                    <p>Rs. 65,000</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/7.png" alt=""></center>
+                    <h1>Apple Iphone 6S</h1>
+                    <p>Rs. 61,000</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/8.png" alt=""></center>
+                    <h1>Apple Iphone 5S</h1>
+                    <p>Rs. 55,999</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+                <div class="phones">
+                    <center><img src="../pics/Mobile Mart/9.png" alt=""></center>
+                    <h1>Apple Iphone 5</h1>
+                    <p>Rs. 45,000</p>
+                    <center><button>Buy Now<a href=""></a></button></center>
+                </div>
+            </main>
+        </section>
+        <footer>
+            <div><img src="../pics/Mobile Mart/banner1.png" alt=""></div>
+            <div id="foot">
+                <div>
+                    <img src="../pics/Mobile Mart/EMart.png" alt="">
+                    <address>
+                        1st Floor,253-Mobile eMart,Badr <br>
+                        Plaza, Gujranwala. <br>
+                        Email:<a href="mailto:info@mobileemart.pk">info@mobileemart.pk</a> <br>
+                        Phone:<a href="tel:0553215866">055-3215866</a>
+                    </address>
+                </div>
+                <div>
+                    <h3>Stay Connected</h3>
+                    <ul>
+                        <li>Facebook<a href=""></a></li>
+                        <li>Youtube<a href=""></a></li>
+                        <li>Twitter<a href=""></a></li>
+                        <li>Linkedin<a href=""></a></li>
+                        <li>Google++<a href=""></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Payment Methods</h3>
+                    <ul>
+                        <li>Easy Paisa<a href=""></a></li>
+                        <li>Jazz Cash<a href=""></a></li>
+                        <li>UBL Omni<a href=""></a></li>
+                        <li>Visa Card<a href=""></a></li>
+                        <li>Master Card<a href=""></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>How to Buy</h3>
+                    <ul>
+                        <li>Create an Account<a href=""></a></li>
+                        <li>Making Payments<a href=""></a></li>
+                        <li>Delivery Options<a href=""></a></li>
+                        <li>Terms & Conditions<a href=""></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="copy">
+                <hr>
+                <p>Copyright &copy; 2024 Mobile eMart. Designed by: Quonain Ejaz</p>
+            </div>
+    
+        </footer>
+    </div>
+</body>
+
+</html>
